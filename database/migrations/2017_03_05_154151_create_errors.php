@@ -15,10 +15,11 @@ class CreateErrors extends Migration
     {
         Schema::create('errors', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('error')->nullable();
+            $table->text('error');
             $table->text('solution')->nullable();
             $table->text('reason')->nullable();
             $table->unsignedInteger('category_id');
+            $table->unsignedInteger('project_id');
             $table->softDeletes();
             $table->timestamps();
         });
