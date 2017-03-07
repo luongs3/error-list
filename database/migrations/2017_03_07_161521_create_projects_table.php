@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateErrorTags extends Migration
+class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateErrorTags extends Migration
      */
     public function up()
     {
-        Schema::create('error_tags', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('tag_id');
-            $table->unsignedInteger('error_id');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->dateTime('started_at')->nullable();
+            $table->dateTime('ended_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +31,6 @@ class CreateErrorTags extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('error_tags');
+        Schema::dropIfExists('projects');
     }
 }
