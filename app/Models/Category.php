@@ -14,7 +14,7 @@ class Category extends Model
     protected $fillable = ['title', 'category'];
 
     protected $dates = ['deleted_at'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function errors()
     {

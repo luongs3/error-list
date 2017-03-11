@@ -9,7 +9,7 @@ class Error extends Model
     protected $fillable = ['error', 'solution', 'reason', 'category_id'];
 
     protected $dates = ['deleted_at'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function category()
     {

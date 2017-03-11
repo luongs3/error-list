@@ -9,10 +9,16 @@ class Tag extends Model
     protected $fillable = ['title'];
 
     protected $dates = ['deleted_at'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function errors()
     {
         $this->belongsToMany(Error::class);
+    }
+
+    public function setTitleAttribute($value)
+    {
+        $value = strtolower($value);
+        $this->attributes['title'] = ucfirst($value);
     }
 }

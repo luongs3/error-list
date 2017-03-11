@@ -11,5 +11,13 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.react('resources/assets/js/index.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.browserSync({
+    proxy: 'error-list.local'
+});
+
+if (mix.config.inProduction) {
+    mix.version();
+}

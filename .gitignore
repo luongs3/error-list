@@ -7,3 +7,8 @@
 Homestead.json
 Homestead.yaml
 .env
+public/build
+public/css
+public/js
+.buildpath
+.docker
