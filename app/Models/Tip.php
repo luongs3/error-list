@@ -9,7 +9,7 @@ class Tip extends Model
     protected $fillable = ['title', 'content', 'project_id', 'category_id'];
 
     protected $dates = ['deleted_at'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function category()
     {

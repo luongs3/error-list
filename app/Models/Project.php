@@ -14,7 +14,7 @@ class Project extends Model
     protected $fillable = ['title', 'description', 'started_at', 'ended_at'];
 
     protected $dates = ['deleted_at', 'started_at', 'ended_at'];
-    protected $timestamps = true;
+    public $timestamps = true;
 
     public function errors()
     {
