@@ -1097,6 +1097,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1:
   dependencies:
     inherits "^2.0.1"
 
+classnames@^2.1.2:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 clean-css@4.0.x, clean-css@^4.0.7:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.0.8.tgz#063dfd593404d3a3d1db494d4b6d0f378b0781b6"
@@ -1455,6 +1459,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-arithmetic@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/date-arithmetic/-/date-arithmetic-3.1.0.tgz#1fcd03dbd504b9dbee2b9078c85a5f1c7d3cc2d3"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -1488,6 +1496,10 @@ debug@2.6.1, debug@^2.1.1, debug@^2.2.0:
 decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
+
+deconstruct-number-format@0.0.1, deconstruct-number-format@~0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/deconstruct-number-format/-/deconstruct-number-format-0.0.1.tgz#fbb5d7dcd45bd2b2fa0e579ed91b59c7e29b386a"
 
 deep-extend@~0.4.0:
   version "0.4.1"
@@ -1543,6 +1555,10 @@ diffie-hellman@^5.0.0:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
+
+dom-helpers@^2.2.4:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-2.4.0.tgz#9bb4b245f637367b1fa670274272aa28fe06c367"
 
 domain-browser@^1.1.1:
   version "1.1.7"
@@ -1955,6 +1971,17 @@ form-data@~2.1.1:
     asynckit "^0.4.0"
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
+
+format-number-with-string@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/format-number-with-string/-/format-number-with-string-0.0.2.tgz#eb96e8f1640c921f7414466ccf8dcb3bb6802cba"
+  dependencies:
+    deconstruct-number-format "~0.0.1"
+    format-number "^2.0.1"
+
+format-number@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/format-number/-/format-number-2.0.2.tgz#8be2aa6fa6ef5ec43830892b1daee72705f9b462"
 
 formidable@1.0.x:
   version "1.0.17"
@@ -2428,7 +2455,7 @@ interpret@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
 
-invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1:
+invariant@^2.0.0, invariant@^2.1.0, invariant@^2.2.0, invariant@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -3212,6 +3239,10 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
+moment@^2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -3894,6 +3925,21 @@ react-tap-event-plugin@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-2.0.1.tgz#316beb3bc6556e29ec869a7293e89c826a9074d2"
   dependencies:
     fbjs "^0.8.6"
+
+react-widgets@^3.4.6:
+  version "3.4.6"
+  resolved "https://registry.yarnpkg.com/react-widgets/-/react-widgets-3.4.6.tgz#e67829ffd358be9bf8e9eac17dbe08377c89f8e5"
+  dependencies:
+    classnames "^2.1.2"
+    date-arithmetic "^3.0.0"
+    dom-helpers "^2.2.4"
+    invariant "^2.1.0"
+    loose-envify "^1.2.0"
+    uncontrollable "^4.0.0"
+    warning "^2.0.0"
+  optionalDependencies:
+    deconstruct-number-format "0.0.1"
+    format-number-with-string "0.0.2"
 
 react@^15.4.2:
   version "15.4.2"
@@ -4731,6 +4777,10 @@ to-fast-properties@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
 
+toastr@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.2.tgz#fd69066ae7578a5b3357725fc9c7c335e9b681df"
+
 tough-cookie@~2.3.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.2.tgz#f081f76e4c85720e6c37a5faced737150d84072a"
@@ -4787,6 +4837,12 @@ uid-number@~0.0.6:
 ultron@1.0.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"
+
+uncontrollable@^4.0.0:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-4.0.3.tgz#06ec76cb9e02914756085d9cea0354fc746b09b4"
+  dependencies:
+    invariant "^2.1.0"
 
 underscore@1.7.x:
   version "1.7.0"
@@ -4919,6 +4975,12 @@ vue-template-es2015-compiler@^1.2.2:
 vue@^2.1.10:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.2.1.tgz#ddbfd2f0caf38f374f5a36eea2e1edf25225b68e"
+
+warning@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-2.1.0.tgz#21220d9c63afc77a8c92111e011af705ce0c6901"
+  dependencies:
+    loose-envify "^1.0.0"
 
 warning@^3.0.0:
   version "3.0.0"

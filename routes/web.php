@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::group(['domain' => 'admin.' . $_ENV['APP_DOMAIN']], function() {
+    Route::get('', function () {
+        return view('admin/index');
+    });
+});
+
+Route::group(['domain' => $_ENV['APP_DOMAIN']], function() {
+    Route::get('', function () {
+        return view('client/index');
+    });
 });

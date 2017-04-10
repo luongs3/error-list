@@ -1,0 +1,24 @@
+/* react-widgets css */
+/* @import "node_modules/react-widgets/lib/scss/variables.scss"; */
+
+$rw-font-path: "../../fonts";
+$rw-img-path: "../img";
+$rw-css-prefix: rw-i;
+$rw-version: "4.1.0";
+
+@import "node_modules/react-widgets/lib/scss/bootstrap-theme.scss";
+
+@import "node_modules/react-widgets/lib/scss/mixins.scss";
+@import "node_modules/react-widgets/lib/scss/normalize.scss";
+@import "node_modules/react-widgets/lib/scss/icons.scss";
+
+@import "node_modules/react-widgets/lib/scss/core.scss";
+@import "node_modules/react-widgets/lib/scss/popup.scss";
+@import "node_modules/react-widgets/lib/scss/datepicker.scss";
+@import "node_modules/react-widgets/lib/scss/selectlist.scss";
+@import "node_modules/react-widgets/lib/scss/multiselect.scss";
+
+
+.rw-btn {
+    line-height: 1.6em;
+}

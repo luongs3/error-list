@@ -9,7 +9,6 @@ class Tag extends Component {
     render() {
         return (
             <div className="tag-container">
-            fsfs
                 <TagList />
             </div>
         );

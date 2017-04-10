@@ -16,4 +16,4 @@ const routers = (
     </Router>
 );
 
-render(routers, document.getElementById('app'));
+render(routers, document.getElementById('admin'));

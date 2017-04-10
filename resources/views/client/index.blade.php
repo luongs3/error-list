@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="_token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/client.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/vendor.css') }}">
 </head>
 <body>
-    <div id="app">
+    <div id="client">
     </div>
-    <script type="text/javascript" src="{{ mix('js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('js/client.js') }}"></script>
 </body>
 </html>

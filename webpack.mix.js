@@ -11,11 +11,15 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.react('resources/assets/js/index.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.react('resources/assets/js/admin/admin.js', 'public/js')
+.react('resources/assets/js/client/client.js', 'public/js')
+.sass('resources/assets/sass/vendors/style.sass', 'public/css/vendor.css')
+.sass('resources/assets/sass/app.sass', 'public/css')
+.sass('resources/assets/sass/admin/admin.sass', 'public/css')
+.sass('resources/assets/sass/client/client.sass', 'public/css');
 
 mix.browserSync({
-    proxy: 'error-list.local'
+    proxy: 'admin.error-list.local'
 });
 
 if (mix.config.inProduction) {
