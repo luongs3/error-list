@@ -7,6 +7,7 @@ class Tag extends Component {
     }
 
     render() {
+        console.log('tag render');
         return (
             <div className="tag-container">
                 <TagList />

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="23px" viewBox="0 0 26 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>List</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A.Course_create-new" transform="translate(-38.000000, -245.000000)" fill="#00BBE5">
+            <g id="Navigation">
+                <g id="List" transform="translate(38.000000, 245.000000)">
+                    <ellipse id="Oval" cx="2.26966316" cy="2.42837209" rx="2.26966316" ry="2.21789535"></ellipse>
+                    <rect id="Rectangle-path" x="7.20254737" y="0.692674419" width="18.5511368" height="3.47112791"></rect>
+                    <ellipse id="Oval" cx="2.26966316" cy="11.598686" rx="2.26966316" ry="2.21789535"></ellipse>
+                    <rect id="Rectangle-path" x="7.20254737" y="9.86298837" width="18.5511368" height="3.47112791"></rect>
+                    <ellipse id="Oval" cx="2.26966316" cy="20.5986395" rx="2.26938947" ry="2.21762791"></ellipse>
+                    <rect id="Rectangle-path" x="7.20254737" y="18.8629419" width="18.5511368" height="3.47139535"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
