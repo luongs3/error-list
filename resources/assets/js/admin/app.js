@@ -5,8 +5,37 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Navigation from './components/navigation';
+import {white, grey700} from 'material-ui/styles/colors'
 
 injectTapEventPlugin();
+
+const mainColor = '#00BBE5';
+const customTheme = {
+    palette: {
+        primary1Color: mainColor,
+        primary2Color: mainColor,
+        accent1Color: mainColor
+    },
+    appBar: {
+        color: white,
+        textColor: mainColor
+    },
+    flatButton: {
+        secondaryTextColor: grey700
+    },
+    tableHeaderColumn: {
+        textColor: white,
+        height: '46px'
+    },
+    tableRow: {
+        stripeColor: '#EFEFEF'
+    },
+    inkBar: {
+        backgroundColor: white
+    }
+}
+
+const muiTheme = getMuiTheme(customTheme);
 
 class App extends Component {
     constructor(props) {
@@ -95,7 +124,7 @@ class App extends Component {
         let pathname = this.props.location.pathname;
 
         return (
-            <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+            <MuiThemeProvider muiTheme={muiTheme}>
                 <div id="wrapper" className="page admin">
                     {loggedIn ? <Navigation pathName={pathname} auth={auth}/> : null}
                     <div className="content-wrapper">

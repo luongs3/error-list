@@ -1,0 +1,160 @@
+#app
+    #wrapper
+        #left-nav
+            position: fixed
+            height: 100vh
+            left: 0
+            top: 0px
+            background: $sub-color-dark !important
+            width: 280px
+            z-index: 2
+            .logo
+                @include flexbox
+                @include flex-center
+                height: 132px
+                border-bottom: 1px solid #494D61
+            .logo-image
+                height: 100px
+                width: 240px
+                background:
+                    image: url('../../image/logo-navigation.svg')
+                    size: 240px auto
+                    position: center center
+                    repeat: no-repeat
+                span
+                    display: block
+                    padding: 10px 0
+            #menu
+                .menu-item
+                    border-bottom: 1px solid #494D61
+                    position: relative
+                    &.active
+                        &:after
+                            content: ''
+                            position: absolute
+                            top: 30px
+                            right: 0
+                            margin: 0 auto
+                            width: 0
+                            height: 0
+                            border-top: solid 6px transparent
+                            border-bottom: solid 6px transparent
+                            border-right: solid 8px #E8E8E8
+                        h4
+                            color: $main-color
+                            border-left: 3px solid $main-color
+                    h4, a
+                        color: #FFF
+                    h4
+                        border-left: 3px solid transparent
+                        cursor: pointer
+                        font-size: 18px
+                        font-weight: 500
+                        margin: 0
+                        position: relative
+                        &:hover
+                            border-left: 3px solid $main-color
+                    a
+                        text-decoration: none
+            #footer
+                color: #FFF
+                text-align: center
+                padding:
+                    top: 20px
+                    bottom: 20px
+                position: fixed
+                left: 0
+                bottom: 0
+                width: 280px
+        &.close-nav
+            #left-nav
+                width: 80px !important
+                z-index: 2
+                .logo
+                    height: 64px
+                    .logo-image
+                        background-size: contain
+                        background-image: url('../../image/navigation-small-logo.png')
+                        width: 48px
+                        height: 48px
+                #menu
+                    .menu-item
+                        h4
+                            +flex-direction(column)
+                            text-align: center
+                            padding: 16px 0
+                            &:after
+                                border: none !important
+                            i.fa
+                                margin-right: initial
+                            i.fa,
+                            .svg-icon
+                                width: 32px
+                                height: 30px
+                                background-size: contain
+                                position: relative
+                                left: -3px
+                            span
+                                font-size: 14px
+                                margin: 0 !important
+                                &:not(.svg-icon)
+                                    display: none
+            #footer
+                display: none
+    .menu-item
+        h4
+            @include flexbox
+            +align-items(center)
+            padding: 24px 32px
+        i.fa-history,
+        span.svg-icon
+            width: 28px
+            height: 24px
+            display: inline-block
+            margin-right: 24px
+            font-size: 28px
+        span.svg-icon
+            background-size: contain
+            background-color: #ffffff
+            &.dashboard
+                background: url('../../image/svg/Dashboard.svg') no-repeat top left
+            &.course
+                background: url('../../image/svg/Course.svg') no-repeat top left
+            &.teacher
+                background: url('../../image/svg/Teacher.svg') no-repeat top left
+            &.admin
+                background: url('../../image/svg/Admin.svg') no-repeat top left
+            &.lesson-report
+                background: url('../../image/svg/Report.svg') no-repeat top left
+            &.apply-form
+                background: url('../../image/svg/Apply_form.svg') no-repeat top left
+            &.infomation
+                background: url('../../image/svg/Information.svg') no-repeat top left
+            &.profile
+                background: url('../../image/svg/Profile.svg') no-repeat top left
+        &.active
+            span.dashboard
+                background: url('../../image/svg/Dashboard_active.svg') no-repeat top left
+            span.course
+                background: url('../../image/svg/Course_active.svg') no-repeat top left
+            span.teacher
+                background: url('../../image/svg/Teacher_active.svg') no-repeat top left
+            span.admin
+                background: url('../../image/svg/Admin_active.svg') no-repeat top left
+            span.lesson-report
+                background: url('../../image/svg/Report_active.svg') no-repeat top left
+            span.apply-form
+                background: url('../../image/svg/Apply_form_active.svg') no-repeat top left
+            span.infomation
+                background: url('../../image/svg/Information_active.svg') no-repeat top left
+            span.profile
+                background: url('../../image/svg/Profile_active.svg') no-repeat top left
+@media screen and (max-height: 760px)
+    #wrapper:not(.close-nav)
+        #left-nav
+            .menu
+                i, svg
+                    display: none !important
+                h4
+                    text-align: left !important
+                    padding-left: 6px !important

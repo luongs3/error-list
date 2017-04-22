@@ -1,0 +1,150 @@
+#wrapper
+    &.close-nav
+        #left-nav
+            width: 80px !important
+            z-index: 2
+            .logo
+                img
+                    content: url("../../../img/framgia.png")
+                    height: 40px
+                    width: auto
+                span
+                    margin-top: 18px
+                    margin-left: calc(100% - 10px)
+                    font-size: 20px
+            #menu
+                @media screen and (max-height: 760px)
+                    i, svg
+                        display: none !important
+                    h4
+                        text-align: left !important
+                        padding-left: 6px !important
+                .menu-item
+                    h4
+                        text-align: center
+                        padding: 16px 0
+                        svg
+                            width: 28px !important
+                            height: 28px !important
+                            margin-left: -2px
+                        i
+                            font-size: 28px
+                            margin-right: 0
+                        span
+                            display: block
+                            font-size: 13px
+                            margin-top: 2px
+                        &:after
+                            border: none !important
+    &:not(.close-nav)
+        #left-nav
+            #menu
+                .menu-item
+                    h4
+                        svg
+                            height: 17px !important
+                            width: 17px !important
+                            margin-right: 13px
+                            margin-left: -2px
+                            vertical-align: text-top
+    #left-nav
+        position: fixed
+        height: 100vh
+        left: 0
+        top: 0
+        background: #FFF !important
+        width: 320px
+        z-index: 2
+        +transition(.6s)
+        .logo
+            background: #F1F2F7
+            height: 56px
+            text-align: center
+            border-bottom: 1px solid $accent
+            position: relative
+            cursor: pointer
+            img
+                padding-top: 6px
+            span
+                color: #aaa
+                display: block
+                position: absolute
+                top: 0
+                font-size: 35px
+                margin-top: 8px
+                margin-left: calc(100% - 25px)
+        #menu
+            .menu-item
+                border-bottom: 1px solid $accent
+                position: relative
+                &.active
+                    h4
+                        background: $primary-background
+                        border-left: 3px solid $accent
+                ul.show
+                    height: initial
+                h4, li, a
+                    color: $accent
+                h4
+                    border-left: 3px solid transparent
+                    cursor: pointer
+                    font-size: 15px
+                    font-weight: 500
+                    margin: 0
+                    padding: 16px
+                    position: relative
+                    &:hover
+                        background: $primary-background
+                        border-left: 3px solid $accent
+                &.has-submenu
+                    h4
+                        &:after
+                            position: absolute
+                            content: " "
+                            border-left: 5px solid transparent
+                            border-right: 5px solid transparent
+                            border-top: 5px solid $accent
+                            height: 0
+                            width: 0
+                            right: 12px
+                            top: 24px
+                            display: inline-block
+                    &.active
+                        border-bottom: none
+                        h4
+                            border-bottom: 1px solid $accent
+                        ul
+                            border: 1px solid $accent
+                            border-right: none
+                            border-top: 0
+                            li
+                                &:not(:last-child)
+                                    border-bottom: 1px solid $accent
+                a
+                    text-decoration: none
+                ul
+                    font-size: 13px
+                    height: 0
+                    line-height: 30px
+                    list-style-type: none
+                    margin: 0
+                    overflow: hidden
+                    margin-left: 36px
+                    padding-left: 0
+                    +transition(height 1s ease)
+                    li
+                        a
+                            display: block
+                            padding: 4px 16px
+                            border-left: 3px solid transparent
+                            margin-bottom: 0
+                        &:hover
+                            cursor: pointer
+                        &:hover,
+                        &.active
+                            background: $primary-background
+                            a
+                                border-left: 3px solid $accent
+                i.fa
+                    margin-right: 16px
+                    color: $accent

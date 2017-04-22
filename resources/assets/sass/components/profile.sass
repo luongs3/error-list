@@ -1,0 +1,110 @@
+.profile-tabs
+    div
+        button
+            font-weight: bold !important
+    .profile-containter
+        width: 100%
+        padding: 16px
+    .profile-setting
+        @include flexbox
+        +align-items(flex-start)
+        .profile
+            width: 100%
+            font-size: 16px !important
+            .left
+                position: relative
+                display: inline-block
+                width: 160px
+                .avatar
+                    display: inline-block
+                    background:
+                        size: cover
+                        repeat: no-repeat
+                        position: center center
+                    width: 160px
+                    height: 160px
+                .change-btn
+                    cursor: pointer
+                    font-size: 16px
+                    bottom: 0
+                    height: 40px
+                    width: 100%
+                    background: rgba(0, 0, 0, 0.2)
+                    color: $primary
+                    label
+                        cursor: pointer
+            .subhead
+                @include flexbox
+                +flex-flow(row wrap)
+                padding-bottom: 8px
+                margin-bottom: 16px
+                &:not(:first-child)
+                    margin-top: 36px
+                h2
+                    +flex(1 1 auto)
+                    margin: 0
+                    font-size: 18px
+                    font-weight: normal
+            .basic-profile
+                margin-left: 40px
+                .row
+                    font-size: 16px
+                    &:not(:last-child)
+                        margin-bottom: 16px
+                    label
+                        color: #9b9b9b
+                        margin-bottom: 4px
+                    .profile-info
+                        font-weight: bold
+                    .input-first-name
+                        padding-left: 0
+                        padding-right: 10px
+                    .input-last-name
+                        padding-left: 10px
+                        padding-right: 0
+                    .fullname
+                        margin-top: 8px
+                    .description
+                        &>div:first-child
+                            margin-left: 0
+                    .col-md-10
+                        padding-right: 0
+                    .add-button
+                        .btn
+                            float: right
+                        .btn-save
+                            margin-right: 15px
+                    td
+                        .item-infor
+                            @include inline-flex
+                            @include flex-center
+                            width: 16px
+                            text-align: center
+                            border: 1px solid #D83635
+                            color: #D83635
+                            height: 16px
+                            border-radius: 3px
+                            cursor: pointer
+                            &.apply
+                                border-color: #4BCD9F
+                                color: #4BCD9F
+
+                .action-btn
+                    margin-right: 12px
+            .change-status
+                margin-top: 24px
+                *
+                    font-size: 14px
+                .title
+                    border-bottom: 1px solid $sub-color-cyan
+                    padding-top: 24px
+                    padding-bottom: 8px
+                    font-weight: bold
+                    text-transform: uppercase
+                    color: red
+                .message
+                    padding: 12px 28px
+                .action
+                    margin-left: 28px
+                    &.btn-black
+                        border: 1px solid #BBB

@@ -1,0 +1,970 @@
+.dashboard
+    .dashboard-filter
+        padding-top: 20px
+        .filter-detail
+            display: inline-block
+            position: relative
+            top: 12px
+            width: 150px
+            margin-left: 20px
+        .filter-month
+            top: -3px
+            width: 220px
+    &.month
+        .month-list
+            height: auto
+        .my-lesson-only
+            .hide
+                display: none
+        table
+            width: 100%
+            border-collapse: collapse
+            table-layout: fixed
+        .courses
+            thead
+                top: 150px
+            thead, tbody
+                padding: 20px
+                position: absolute
+            tr
+                td + td, th + th
+                    border-left: $dashboard-border solid #ccc
+                &:not(.day)
+                    min-height: 48px
+                    td, th
+                        min-height: 48px
+                        border:
+                            top: $dashboard-border solid #ccc
+                            bottom: $dashboard-border solid #ccc
+                td, th
+                    width: 200px
+                    &:first-child
+                        border-left: $dashboard-border solid #ccc
+                    &:last-child
+                        border-right: $dashboard-border solid #ccc
+                    &>div
+                        &.clickable
+                            @include flexbox
+                            +align-items(center)
+                        &.highlight
+                            border: solid 2px red
+                th
+                    text-align: center
+                    &.first
+                        .name
+                            position: relative
+                            top: -2px
+                        .empty
+                            width: 63px
+                td
+                    .table-navigation
+                        cursor: pointer
+                        display: inline-block
+                        &:hover
+                            color: $dashboard-hover-color
+                            border: $dashboard-hover-color
+                        i
+                            display: inline-block
+                            line-height: 20px
+                            width: 22px
+                            height: 22px
+                            border-radius: 50%
+                            color: #FFF
+                            font-size: 20px
+                            border: 1px solid #FFF
+                            &:before
+                                position: relative
+                                left: 6px
+                        &.before
+                            position: relative
+                            margin-right: 6px
+                            top: 2px
+                        &.next
+                            position: absolute
+                            right: 10px
+            tbody
+                .highlight
+                    border: solid 2px red !important
+                    padding-left: 5px
+                tr
+                    &.day
+                        td
+                            background: #bfc6ca !important
+                            border-bottom: none !important
+                    &:not(.day)
+                        min-height: 48px !important
+                        td
+                            padding: 0 !important
+                            vertical-align: top
+                    td
+                        position: relative
+                        .min-height
+                            min-height: 48px
+                        .course
+                            padding: 10px
+                            &:not(:last-of-type)
+                                &::after
+                                    content: ''
+                                    width: 90%
+                                    margin-top: 10px
+                                    position: absolute
+                                    border-bottom: solid 1px #ccc
+                            *
+                                font-size: 14px
+                            .course-name
+                                word-wrap: break-word
+                                white-space: normal
+                            .lesson-group
+                                &:hover
+                                    .lesson-time
+                                        span
+                                            background-color: $main-color
+                                            border: 1px solid $main-color
+                                            color: #FFF
+                                        hr
+                                            border-top-color: $main-color
+                                    .lesson-content
+                                        cursor: pointer
+                                        *
+                                            color: $main-color
+                                    .highlight-lesson-teacher
+                                        background-color: $main-color
+                                        *
+                                            color: #FFF !important
+                                .lesson-content
+                                    font-size: 13px !important
+                                    padding: 4px 5px 0 5px
+                                    pre
+                                        margin: 0
+                                        white-space: normal
+                                        word-wrap: break-word
+                                    .bold
+                                        font-weight: bold
+                                ul
+                                    margin: 4px 0 0
+                                    padding-left: 8px
+                                    margin-left: 16px
+                                    .class-name
+                                        margin: 0px
+                                        margin-bottom: 4px
+                                    li
+                                        font-size: 8px
+                                        span
+                                            font-size: 14px
+                                .lesson-time
+                                    position: relative
+                                    margin: 10px 0 4px 0
+                                    hr
+                                        position: absolute
+                                        border-top: 1px dashed #DDD
+                                        left: 0
+                                        top: 8px
+                                        z-index: 1
+                                        width: calc(100% - 24px)
+                                        margin: 0 0 0 20px
+                                    span
+                                        padding: 1px 6px
+                                        position: relative
+                                        z-index: 2
+                                        border: 1px solid transparent
+                                        border-radius: 4px
+                                    .normal
+                                        background: #D8D8D8
+                            .highlight-lesson-teacher
+                                background-color: $highlight-lessons-teacher
+                                border-bottom: solid 1px #fff
+                                color: #ffffff
+                                border-radius: 4px
+    &.week
+        .month-list
+            @include flexbox
+            +justify-content(center)
+            margin-top: 30px
+            .courses
+                width: 100%
+                border-collapse: collapse
+                th, td
+                    border: 1px solid #ccc
+                th
+                    height: 48px
+                    color: #fff
+                    &:first-child
+                        background-color: #fff
+                thead
+                    z-index: 100
+                    top: 173px
+                    position: absolute
+                tbody
+                    top: 222px
+                    position: absolute
+                tr
+                    th
+                        &.first
+                            .name
+                                position: relative
+                                top: -2px
+                            .empty
+                                width: 63px
+                    th
+                        .table-navigation
+                            cursor: pointer
+                            display: inline-block
+                            i
+                                display: inline-block
+                                line-height: 22px
+                                width: 24px
+                                height: 24px
+                                border-radius: 50%
+                                color: #FFF
+                                font-size: 20px
+                                border: 1px solid #FFF
+
+                            &.before
+                                position: relative
+                                margin-right: 6px
+                                top: 2px
+                            &.next
+                                position: absolute
+                                right: 10px
+                tbody
+                    tr
+                        &.day
+                            td
+                                background: #bfc6ca !important
+                        &:not(.day)
+                            td
+                                padding: 0 !important
+                        td
+                            position: relative
+                            .course
+                                padding: 10px
+                                &:not(:last-of-type)
+                                    &::after
+                                        content: ''
+                                        width: 90%
+                                        margin-top: 10px
+                                        position: absolute
+                                        border-bottom: solid 1px #ccc
+                                *
+                                    font-size: 14px
+                                .course-name
+                                    word-wrap: break-word
+                                    white-space: normal
+                                .lesson-time
+                                    position: relative
+                                    margin: 10px 0 4px 0
+                                    hr
+                                        position: absolute
+                                        border-top: 1px dashed #DDD
+                                        left: 0
+                                        top: 8px
+                                        z-index: 1
+                                        width: calc(100% - 24px)
+                                        margin: 0 0 0 18px
+                                    span
+                                        position: relative
+                                        z-index: 2
+                                        border: 1px solid transparent
+                                        padding: 1px 6px
+                                        border-radius: 4px
+                                    .normal
+                                        background: #D8D8D8
+                                .lesson-group
+                                    // cursor: pointer
+                                    .lesson-content
+                                        padding: 4px 5px 0 5px
+                                        font-size: 13px !important
+                                        margin: 0
+                                        pre
+                                            margin: 0
+                                            padding: 2px 0 0
+                                        li
+                                            font-size: 8px
+                                            pre
+                                                font-size: 14px
+                                        .bold
+                                            font-weight: bold
+                                    .class-name
+                                        padding: 5px 17px
+                                        @include flexbox
+                                        +justify-content(space-between)
+                                        +align-items(center)
+                                        .name
+                                            float: left
+                                            padding-left: 14px
+                                            margin: 0
+                                        .avatar
+                                            float: right
+                                        .bold
+                                            font-weight: bold
+                                        ul
+                                            li
+                                                font-size: 8px
+                                                pre
+                                                    font-size: 14px
+                                .lesson-group
+                                    &:hover
+                                        .class-name
+                                            cursor: pointer
+                                            .name
+                                                color: $main-color
+                                        .lesson-time
+                                            span
+                                                background: $main-color
+                                                border: 1px solid $main-color
+                                                color: #FFF
+                                            hr
+                                                border-top-color: $main-color
+                                        .lesson-content
+                                            cursor: pointer
+                                            *
+                                                color: $main-color
+                                        .highlight-lesson-teacher
+                                            background-color: $main-color
+                                            *
+                                                color: #FFF !important
+                                .highlight-lesson-teacher
+                                    background-color: $highlight-lessons-teacher
+                                    color: #ffffff
+                                    border-top: solid 1px #fff
+                                    border-radius: 4px
+                                    .time
+                                        color: #ffffff !important
+                        td:first-of-type
+                            text-align: center !important
+                            background-color: rgba(15, 15, 15, 0.03) !important
+#main-content.dashboard
+    &.month
+        .day
+            .column
+                white-space: nowrap !important
+                text-overflow: ellipsis !important
+                color: rgb(255, 255, 255) !important
+                background-color: rgba(0, 0, 0, 0.7) !important
+                height: 42px !important
+                font-weight: 800 !important
+                font-size: 16px !important
+        .courses
+            tr:not(.day)
+                td
+                    position: relative
+                    .td-content
+                        vertical-align: top
+                        border: $dashboard-border solid transparent
+                        padding: 4px
+                        height: 100%
+                        .lesson-content
+                            @include flexbox
+                            +align-items(flex-start)
+                    .expand-button
+                        position: absolute
+                        width: 70px
+                        height: 70px
+                        right: 1px
+                        bottom: 1px
+                        .fa-expand
+                            display: inline-block
+                            position: absolute
+                            right: 1px
+                            bottom: 1px
+                            cursor: pointer
+                            font-size: 12px
+                            border-radius: 50%
+                            padding: 6px
+                            border: none
+                            background: transparent
+                            color: #4a4a4a
+                        &:hover
+                            .fa-expand
+                                border: 1px solid #d6d6d7
+                                font-size: 20px
+                                background: #d6d6d7
+    .dashboard-navigation
+        width: calc(100% - 40px)
+        margin-left: 20px
+        border-bottom: solid 1px #ccc
+        .title
+            font:
+                size: 18px
+                weight: bold
+        &>div
+            @include flexbox
+            +justify-content(space-between)
+            +align-items(center)
+            height: 76px
+            width: 100%
+            &:last-child
+                padding-bottom: 12px
+        .dropdown, .nav
+            @include flexbox
+            +justify-content(space-between)
+            +align-items(center)
+        .dropdown
+            &>div
+                display: inline-block
+                &:nth-child(1),
+                &:nth-child(2)
+                    width: 130px
+                    margin-right: 16px
+                &:nth-child(3)
+                    width: 220px
+        .nav
+            font-size: 16px
+            i.material-icons
+                border: 1px solid $sub-color-cyan
+                font-size: 30px
+                border-radius: 50%
+                cursor: pointer
+                &.disabled
+                    cursor: not-allowed
+                    +opacity(0.5)
+                &:hover
+                    background-color: $dashboard-hover-color
+            span
+                padding: 6px 32px
+                background: rgba(15, 15, 15, 0.09)
+                border-radius: 20px
+                margin: 0 10px
+        .right
+            @include inline-flex
+            +align-items(center)
+            &>div
+                height: 40px
+                @include inline-flex
+                +align-items(center)
+        .export
+            border: 1px solid $sub-color-cyan
+            border-radius: 3px
+            cursor: pointer
+            margin-right: 12px
+            i.fa
+                font-size: 24px
+                padding: 0 16px
+            &:hover
+                background-color: $dashboard-hover-color
+        .switcher
+            width: 240px
+            &>div
+                display: inline-block
+                padding: 8px 28px
+                border: 1px solid $sub-color-cyan
+                background: $sub-color-cyan
+                cursor: pointer
+                font-size: 16px
+                width: 50%
+                text-align: center
+                &.active
+                    background: #FFF
+                &:first-child
+                    border-radius: 3px 0 0 3px
+                    border-right: none
+                &:last-child
+                    border-radius: 0 3px 3px 0
+                    border-left: none
+                &:hover
+                    background-color: $dashboard-hover-color
+        .checkbox-lesson
+            width: 150px !important
+            margin-left: 15px
+            div
+                div
+                    div
+                        svg:first-child
+                            fill: rgb(85, 85, 85) !important
+.lesson-dialog
+    .dialog-wrapper
+        .dialog-header
+            text-align: left !important
+            @include flexbox
+            .title
+                width: 50%
+                padding-right: 40px
+            .title-border-left
+                border-left: solid 1px
+        .dialog-body
+            padding: 0px 15px !important
+            .lessons
+                max-height: 420px
+                padding-top: 15px
+                overflow-x: hidden
+                overflow-y: auto
+                position: relative
+                &::-webkit-scrollbar
+                    width: 5px
+                &::-webkit-scrollbar-track
+                    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+                    -webkit-border-radius: 10px
+                    border-radius: 10px
+                &::-webkit-scrollbar-thumb
+                    -webkit-border-radius: 10px
+                    border-radius: 10px
+                    background: rgba(216,216,216,1.0)
+                    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.5)
+                .lesson-detail
+                    padding-bottom: 15px
+                    label
+                        font-size: 16px
+                        font-weight: bold
+                    .lesson-info
+                        font-size: 14px
+                        color: rgba(0, 0, 0, 0.54)
+                        text-align: justify
+                .class-detail
+                    border-top: 1px dashed #C9C7C7
+                    padding: 15px 0 15px 0
+                    margin: 0px
+                    position: relative
+                    label
+                        font-size: 16px
+                        font-weight: bold
+                    .class-room
+                        padding-left: 0px
+                    .class-info
+                        padding-right: 0px
+                        font-size: 14px
+                        color: rgba(0, 0, 0, 0.54)
+                        text-align: justify
+                        .teacher-detail
+                            @include flexbox
+                            +align-items(center)
+                            +justify-content(center)
+                            &:hover
+                                cursor: pointer
+                            .avatar-cicle
+                                height: 64px
+                                width: 64px
+                                display: inline-block
+                                background:
+                                    size: cover
+                                    repeat: no-repeat
+                                    position: center center
+                                width: 64px
+                                height: 64px
+                                +border-radius(50%)
+                                margin-right: 16px
+                            span
+                                width: calc(90% - 64px)
+                                color: #00BBE5
+                                &:hover
+                                    text-decoration: underline
+                    .action
+                        margin-top: 20px
+                    &:first-child
+                        border-top: 1px solid #C9C7C7
+                    :last-child
+                        border-bottom: 0 !important
+                    .activities-button
+                        margin-left: 20px
+            #activity-wrapper
+                padding: 0
+            .activities
+                height: 420px
+                border-left: solid 2px #f1f1f1
+                padding: 0px
+                padding-top: 15px
+                overflow: auto
+                position: relative
+                &::-webkit-scrollbar
+                    width: 5px
+                &::-webkit-scrollbar-track
+                    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+                    -webkit-border-radius: 10px
+                    border-radius: 10px
+                &::-webkit-scrollbar-thumb
+                    -webkit-border-radius: 10px
+                    border-radius: 10px
+                    background: rgba(216,216,216,1.0)
+                    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.5)
+                @include flexbox
+                +align-items(center)
+                +flex-wrap(wrap)
+                .logs
+                    +align-self(flex-start)
+                    font-size: 14px
+                    overflow-x: hidden
+                    overflow-y: auto
+                    padding: 0px
+                    width: 100%
+                    .lesson-log
+                        padding: 15px
+                        border-bottom: solid 1px #c5c5c5
+                        &:first-child
+                            padding-top: 0px
+                        &:last-child
+                            border-bottom: 0px
+                        .lesson-name
+                            font-size: 15px
+                            font-weight: 900
+                            color: #000
+                        .lesson-day
+                            position: relative
+                            padding-top: 10px
+                            margin-bottom: 20px
+                            border-bottom: dashed 1px #ccc
+                            span
+                                position: absolute
+                                padding: 0 15px
+                                top: 0px
+                                right: 40px
+                                background-color: #fff
+                        .log-content
+                            @include flexbox
+                            +align-items(center)
+                            +justify-content(space-between)
+                            .log-message
+                                max-width: 80%
+                                .user-name
+                                    font-weight: bold
+                                    color: #00BBE5
+                                .file-name
+                                    text-decoration: line-through
+                            .log-time
+                                +align-self(flex-end)
+                                font-size: 12px
+                    .lesson-comment
+                        .user
+                            @include flexbox
+                            +align-items(center)
+                            margin-left: 15px
+                            padding-top: 10px
+                            .avatar
+                                height: 30px
+                                width: 30px
+                                display: inline-block
+                                background:
+                                    size: cover
+                                    repeat: no-repeat
+                                    position: center center
+                                +border-radius(50%)
+                                margin-right: 16px
+                            .name
+                                font-weight: bold
+                                color: #00BBE5
+                        .comment
+                            margin-left: 60px
+                            .user-name
+                                color: #00BBE5
+                            margin-right: 15px
+                            @include flexbox
+                            +align-items(center)
+                            +justify-content(space-between)
+                            .content
+                                max-width: 80%
+                            .time
+                                +align-self(flex-end)
+                                font-size: 12px
+                .comment-input
+                    +align-self(flex-end)
+                    width: 100%
+                    margin-top: 12px
+                    font-size: 14px
+                    .mention-input
+                        border: 1px solid #c5c5c5
+                        border-radius: 4px
+                        padding: 4px
+                        margin: 10px
+                        .control
+                            @include flexbox
+                            +align-items(center)
+                            +justify-content(space-between)
+                            padding: 0 5px 5px 5px
+                            margin: 0 -5px
+                            border-bottom: solid 1px #ccc
+                            .users-menu
+                                position: relative
+                                padding: 5px
+                                border: solid 1px #b5b5b5
+                                border-radius: 50%
+                                @include inline-flex
+                                +align-items(center)
+                                +justify-content(center)
+                                width: 32px
+                                height: 32px
+                                .fa-user-plus
+                                    cursor: pointer
+                                .users-list
+                                    display: none
+                                    position: absolute
+                                    overflow-x: hidden
+                                    overflow-y: auto
+                                    height: 200px
+                                    width: 200px
+                                    bottom: 32px
+                                    left: -6px
+                                    background-color: #fff
+                                    border: solid 1px rgba(0,0,0,0.15)
+                                    padding: 0
+                                    margin: 0
+                                    .user-item
+                                        list-style: none
+                                        padding: 5px 15px
+                                        cursor: pointer
+                                        @include flexbox
+                                        +align-items(center)
+                                        &:hover
+                                            background-color: #cee4e5
+                                        .user-name
+                                            font-weight: bold
+                                        .user-avatar
+                                            height: 20px
+                                            width: 20px
+                                            display: inline-block
+                                            background:
+                                                size: cover
+                                                repeat: no-repeat
+                                                position: center center
+                                            +border-radius(50%)
+                                            margin-right: 16px
+                            .submit-button
+                                cursor: pointer
+                                padding: 2px 8px
+                                color: #fff
+                                background-color: rgba(0, 187, 229, 1)
+                                border: solid 1px transparent
+                                border-radius: 3px
+                                &:hover
+                                    background-color: rgba(0, 187, 229, 0.4)
+                        .input
+#main-content
+    &.dashboard
+        &.day
+            width: calc(100vw - 80px) !important
+            height: 100vh !important
+            position: fixed
+            top: 0
+            #dashboard-day
+                overflow: hidden !important
+                position: relative
+                margin-top: 50px
+                background: #E8E8E8 !important
+                #day-view
+                    background: #FFF
+                    border: 1px solid $sub-color-cyan
+                    border-radius: 2px
+                    margin: 16px
+                    .dashboard-day-navbar
+                        position: relative
+                        @include flexbox
+                        +align-items(center)
+                        +justify-content(center)
+                        border-bottom: 1px solid #d8d8d8
+                        padding: 10px 0
+                        .nav
+                            font-size: 16px
+                            @include flexbox
+                            +align-items(center)
+                            +justify-content(space-between)
+                            margin: 0 20px
+                            width: 100%
+                            .title
+                                color: #4a4a4a
+                                font-size: 24px
+                            .navigation
+                                padding: 8px 0px
+                                span
+                                    width: 182px
+                                    height: 36px
+                                    border-radius: 100px
+                                    background-color: #d6d6d7
+                                    margin: 0 10px 0 10px
+                                    @include flexbox
+                                    +align-items(center)
+                                    +justify-content(center)
+                                i.material-icons
+                                    width: 36px
+                                    height: 36px
+                                    border: solid 1px #9b9b9b
+                                    font-size: 34px
+                                    color: #4a4a4a
+                                    border-radius: 50%
+                                    cursor: pointer
+                            .icon-close
+                                cursor: pointer
+                                width: 50px
+                                height: 50px
+                                background-color: #d8d8d8
+                                +border-radius(50%)
+                                @include flexbox
+                                +align-items(center)
+                                +justify-content(center)
+
+                    .day-content
+                        margin: 11px 14px 11px 14px
+                        height: calc(100vh - 128px)
+                        overflow-y: auto
+                        .no-detail
+                            text-align: center
+                            margin-top: 32px
+                            font-size: 32px
+                        #lessons-day-table
+                            &.lessons-table
+                                font-family: OpenSans
+                                font-size: 18px
+                                width: 100%
+                                border-collapse: collapse
+                                border: solid 1px #d6d6d7
+                                th, td
+                                    border: solid 1px #d6d6d7
+                                    padding-left: 20px !important
+                                th
+                                    background-color: #00bbe5
+                                    font-weight: bold
+                                    color: #fff
+                                    height: 60px
+                                tbody
+                                    tr
+                                        &:first-child
+                                            td.teacher
+                                                border: 0
+                                        td
+                                            padding: 17px 22px 17px 22px
+                                            &.lesson-time
+                                                width: 150px
+                                            &.course-name
+                                                width: 150px
+                                            &.course-class-name
+                                                width: 90px
+                                                border-right: dashed 1.5px #979797
+                                            &.teacher
+                                                border-left: none
+                                                width: 210px
+                                                .teacher-detail
+                                                    border: 0
+                                                    @include flexbox
+                                                    +align-items(center)
+                                                    .teacher-avatar
+                                                        height: 40px
+                                                        width: 40px
+                                                        display: inline-block
+                                                        background:
+                                                            size: cover
+                                                            repeat: no-repeat
+                                                            position: center center
+                                                        +border-radius(50%)
+                                                        margin-right: 16px
+                                                    .teacher-name
+                                                        max-width: 120px
+                                            &.lesson-room
+                                                color: #4a4a4a
+                                                font-weight: bold
+                                                font-size: 20px
+                                                width: 100px
+
+#normal-search
+    padding: 20px 0
+    border-bottom: 1px solid #CCC
+    width: calc(100% - 40px)
+    margin-left: 20px
+    .header
+        font-size: 20px
+        margin-bottom: 16px
+    .result-month
+        font-size: 16px
+        width: calc(100% - 150px)
+        display: inline-block
+        span
+            &:first-child
+                font-size: 18px
+            &.clickable
+                padding: 2px 12px
+                &:hover
+                    color: $main-color
+                &.active
+                    color: $main-color
+                    font-weight: bold
+.class-dialog
+    .dialog-wrapper
+        max-width: 900px !important
+        .dialog-content
+            display: flex
+            flex-direction: column
+            padding: 0 !important
+            .dialog-header
+                display: block
+                box-sizing: border-box
+                background-color: #00BBE5 !important
+                color: white !important
+                font-size: 18px !important
+                padding: 12px 18px !important
+                .icon-clear
+                    color: white !important
+                    float: right
+                    &:hover
+                        cursor: pointer
+            .dialog-body
+                padding: 0 16px !important
+                .lesson-list
+                    overflow-y: auto
+                    overflow-x: hidden
+                    height: 500px
+                    .class-group
+                        .class-item
+                            border-bottom: solid 1px #ccc
+                            margin: 0px -15px
+                            padding: 15px
+                            &:hover
+                                cursor: pointer
+                            &:hover,
+                            &.active
+                                background: #EEE
+                            .teacher-detail
+                                @include flexbox
+                                +align-items(center)
+                                span
+                                    margin-left: 15px
+                                .teacher-avatar
+                                    img
+                                        width: 50px !important
+                                        height: 50px
+                                        border-radius: 50%
+                            .lesson-and-time
+                                border-bottom: dashed 1px #ccc
+                                margin-bottom: 15px
+                            .edit-lesson
+                                @include flexbox
+                                +justify-content(flex-end)
+                                padding-right: 12px
+                            &:last-child
+                                border-bottom: none
+                        .row
+                            padding-bottom: 8px
+                            .teacher
+                                padding-left: 0
+                            .class-name-room
+                                .row
+                                    padding:
+                                        left: 0px !important
+                                        right: 0px !important
+                                    &>div
+                                        &:last-child
+                                            padding-right: 0
+                .lesson-log
+                    border-left: solid 2px #f1f1f1
+                    overflow: hidden
+                    .logs
+                        font-size: 14px
+                        overflow-x: hidden
+                        overflow-y: auto
+                        margin: 5px
+                        padding: 5px
+                        border: solid 1px #c5c5c5
+                        .log-content
+                            @include flexbox
+                            +align-items(center)
+                            +justify-content(space-between)
+                            .log-message
+                                .user-name
+                                    font-weight: bold
+                                    color: #00BBE5
+                            .log-time
+                    .comment-input
+                        border: 1px solid #c5c5c5
+                        margin-top: 12px
+                        border-radius: 4px
+                        padding: 4px
+                        font-size: 14px
+                        height: 54px
+                        overflow: auto
+                        .input
+                            &:focus
+                                outline: 0

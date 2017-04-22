@@ -1,0 +1,85 @@
+.login, .forgot-password .register
+    width: calc(100% + 280px) !important
+    position: relative
+    right: 280px
+    height: 100%
+    overflow: auto
+    text-align: left
+    margin-bottom: 100px
+    background-image: linear-gradient(to top, #2f6fb4, #39c7e9)
+    @include flexbox
+    +flex-direction(column)
+    +align-items(center)
+    .framgia-icon
+        margin-top: 60px
+        margin-bottom: 80px
+    .login-title
+        margin-bottom: 60px
+        font-size: 32px
+        color: #ffffff
+        text-align: center
+        .underline
+            width: 164px
+            height: 2px
+            opacity: 0.55
+            background-color: #ffffff
+    .login-notice
+        margin-bottom: 50px
+        color: #ffffff
+
+.login-box
+    width: 530px
+    border-radius: 3px
+    background-color: #ffffff
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3)
+    text-align: center
+    padding: 40px 50px
+    .login-form
+        .title
+            height: 22px
+            font-size: 16px
+            font-weight: 600
+            text-align: left
+            color: $input-title
+            margin-bottom: 7px
+        .login-input
+            width: 468px
+            height: 50px
+            padding-left: 45px
+            border-radius: 3px
+            opacity: 0.6
+            border: solid 1px $input-border
+            margin-bottom: 20px
+            &.email
+                background: url(../../images/envelope.svg) no-repeat scroll !important
+                background-size: 15px 15px !important
+                background-position: 15px 15px !important
+            &.password
+                background: url(../../images/padlock.svg) no-repeat scroll !important
+                background-size: 15px 15px !important
+                background-position: 15px 15px !important
+            input
+                border-left: solid 1px $input-border !important
+                padding-left: 10px !important
+                &:focus
+                    border: solid 1px $input-border-hover !important
+            div
+                padding-left: 10px !important
+                &:last-child
+                    bottom: -5px !important
+
+    .login-forgot-password
+        text-align: center
+        color: $button-blue !important
+        margin: 10px
+
+.reset-email
+    &>label
+        transform: scale(1) translate(0px, -28px) !important
+
+.dialog-body
+    &.change-password
+        .row
+            margin-bottom: 12px
+            .col-md-4
+                margin-top: 8px

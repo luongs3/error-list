@@ -1,0 +1,252 @@
+$vendorPrefixes: (-webkit-, -moz-, -khtml-, -o-, -ms-) !default
+
+=css3-prefix($property, $value...)
+    @each $vendorPrefix in $vendorPrefixes
+        #{$vendorPrefix}#{$property}: $value
+    #{$property}: $value
+
+=css3-function($property, $function, $value...)
+    @each $vendorPrefix in $vendorPrefixes
+        #{$property}: #{$vendorPrefix}#{$function}($value)
+    #{$property}: #{$function}($value)
+
+// Border radiuses
+=border-radius($radius)
+    +css3-prefix(border-radius, $radius)
+=border-top-left-radius($radius)
+    +css3-prefix(border-top-left-radius, $radius)
+=border-top-right-radius($radius)
+    +css3-prefix(border-top-right-radius, $radius)
+=border-bottom-left-radius($radius)
+    +css3-prefix(border-bottom-left-radius, $radius)
+=border-bottom-right-radius($radius)
+    +css3-prefix(border-bottom-right-radius, $radius)
+
+// Border images
+=border-image($value)
+    +css3-prefix(border-image, $value)
+=border-image-outset($outset)
+    +css3-prefix(border-image-outset, $outset)
+=border-image-repeat($repeat)
+    +css3-prefix(border-image-repeat, $repeat)
+=border-image-source($source)
+    +css3-prefix(border-image-source, $source)
+=border-image-slice($slice-offset)
+    +css3-prefix(border-image-slice, $slice-offset)
+=border-image-width($width)
+    +css3-prefix(border-image-width, $width)
+
+// Break after
+=break-after($value)
+    +css3-prefix(column-break-after, $value)
+=break-before($value)
+    +css3-prefix(column-break-before, $value)
+=break-inside($value)
+    +css3-prefix(column-break-inside, $value)
+
+// Columns
+=columns($value)
+    +css3-prefix(columns, $value)
+=column-count($count)
+    +css3-prefix(column-count, $count)
+=column-fill($fill)
+    +css3-prefix(column-fill, $fill)
+=column-gap($gap)
+    +css3-prefix(column-gap, $gap)
+=column-rule($rule)
+    +css3-prefix(column-rule, $rule)
+=column-rule-color($rule-color)
+    +css3-prefix(column-rule-color, $rule-color)
+=column-rule-style($rule-style)
+    +css3-prefix(columns-rule-style $rule-style)
+=column-rule-width($rule-width)
+    +css3-prefix(column-rule-width, $rule-width)
+=column-span($span)
+    +css3-prefix(column-span, $span)
+=column-width($width)
+    +css3-prefix(column-width, $width)
+
+// Keyframes
+=keyframes($animation-name)
+    @if index($vendorPrefixes, -webkit-)
+        @-webkit-keyframes #{$animation-name}
+            @content
+    @if index($vendorPrefixes, -moz-)
+        @-moz-keyframes #{$animation-name}
+            @content
+    @if index($vendorPrefixes, -khtml-)
+        @-khtml-keyframes #{$animation-name}
+            @content
+    @if index($vendorPrefixes, -ms-)
+        @-ms-keyframes #{$animation-name}
+            @content
+    @if index($vendorPrefixes, -o-)
+        @-o-keyframes #{$animation-name}
+            @content
+    @keyframes #{$animation-name}
+        @content
+
+// Animations
+=animation($animation)
+    +css3-prefix(animation, $animation)
+=animation-delay($delay)
+    +css3-prefix(animation-delay, $delay)
+=animation-direction($direction)
+    +css3-prefix(animation-direction, $direction)
+=animation-duration($duration)
+    +css3-prefix(animation-duration, $duration)
+=animation-fill-mode($mode)
+    +css3-prefix(animation-fill-mode, $mode)
+=animation-iteration-count($count)
+    +css3-prefix(animation-iteration-count, $count)
+=animation-name($name)
+    +css3-prefix(animation-name, $name)
+=animation-play-state($state)
+    +css3-prefix(animation-play-state, $state)
+=animation-timing-function($timing-function)
+    +css3-prefix(animation-timing-function, $timing-function)
+
+// Transitions
+=transition($transition)
+    +css3-prefix(transition, $transition)
+=transition-delay($delay)
+    +css3-prefix(transition-delay, $delay)
+=transition-duration($duration)
+    +css3-prefix(transition-duration, $duration)
+=transition-timing-function($timing-function)
+    +css3-prefix(transition-timing-function, $timing-function)
+=transition-property($property)
+    +css3-prefix(transition-property, $property)
+
+// Transforms
+=backface-visibility($visibility-state)
+    +css3-prefix(backface-visibility, $visibility-state)
+=perspective($length)
+    +css3-prefix(perspective, $length)
+=perspective-origin($positions)
+    +css3-prefix(perspective-origin, $positions)
+=transform($transform)
+    +css3-prefix(transform, $transform)
+=transform-origin($axises)
+    +css3-prefix(transform-origin, $axises)
+=transform-style($value)
+    +css3-prefix(transform-style, $value)
+
+// Backgrounds
+=background-clip($value)
+    +css3-prefix(background-clip, $value)
+=background-origin($value)
+    +css3-prefix(background-origin, $value)
+=background-size($size)
+    +css3-prefix(background-size, $size)
+
+// Gradients
+=linear-gradient($value...)
+    +css3-function(background, linear-gradient, $value)
+=repeating-linear-gradient($value...)
+    +css3-function(background, repeating-linear-gradient, $value)
+=radial-gradient($value...)
+    +css3-function(background, radial-gradient, $value)
+=repeating-radial-gradient($value...)
+    +css3-function(background, repeating-radial-gradient, $value)
+
+// Others
+=appearance($value...)
+    +css3-prefix(appearance, $value)
+=box-shadow($offsets...)
+    +css3-prefix(box-shadow, $offsets)
+=box-decoration-break($type...)
+    +css3-prefix(box-decoration-break, $type)
+=opacity($value)
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value * 100})
+    filter: alpha(opacity=#{$value * 100})
+    opacity: $value
+
+// By NamNV609
+// Github: https://github.com/namnv609/sass-css3-mixins
+
+=opacity($opacity)
+    +css3-prefix(opacity, $opacity)
+=box-sizing($type)
+    +css3-prefix(box-sizing, unquote($type))
+
+@mixin flexbox
+    display: -webkit-box
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flexbox
+    display: flex
+
+@mixin inline-flex
+    display: -webkit-inline-box
+    display: -webkit-inline-flex
+    display: -moz-inline-flex
+    display: -ms-inline-flexbox
+    display: inline-flex
+
+@mixin flex-center
+    +justify-content(center)
+    +align-items(center)
+
+@mixin input-common
+    .title
+        height: 22px
+        font-size: 16px
+        font-weight: 600
+        text-align: left
+        color: $input-title !important
+        margin-bottom: 7px
+    .form-input
+        width: 468px
+        height: 50px
+        opacity: 0.6
+        margin-bottom: 20px
+        div:first-child
+            left: 10px !important
+        input, textarea
+            border: solid 1px #CCC !important
+            border-radius: 3px
+            color: $input-color !important
+            font-weight: 600 !important
+            padding-left: 10px !important
+            &:focus
+                border: solid 1px $main-color !important
+    .form-area
+        div:first-child
+            left: -10px !important
+    .input-first-name
+        padding-left: 0
+        padding-right: 10px
+    .input-last-name
+        padding-left: 10px
+        padding-right: 0
+@mixin image-style
+    position: relative
+    display: inline-block
+    width: 160px
+    height: 160px
+    .avatar
+        display: inline-block
+        background:
+            size: cover
+            repeat: no-repeat
+            position: center center
+        width: 160px
+        height: 160px
+    .change-btn
+        cursor: pointer
+        font-size: 16px
+        bottom: 0
+        height: 40px
+        width: 100%
+        background: rgba(0, 0, 0, 0.2)
+        color: $primary
+        label
+            cursor: pointer
+
+@mixin form-title
+    font-size: 16px
+    font-weight: bold
+    color: #4a4a4a
+
+@import "./flex-mixins"

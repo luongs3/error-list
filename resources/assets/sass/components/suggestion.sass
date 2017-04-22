@@ -1,0 +1,47 @@
+.class-suggestion-list
+    .suggestion-item
+        padding: 5px
+        @include flexbox
+        +flex-direction(row)
+        +flex-wrap(wrap)
+        .delete, .apply
+            &:hover
+                cursor: pointer
+                color: $primary
+        .item-infor
+            display: inline-block
+            margin-left: 50px
+            width: 80px
+            font-size: 15px
+            &:first-child
+                margin-left: 0
+            span:first-child
+                font-size: 12px
+            span:last-child
+                margin-left: 15px
+            .day
+                width: 60px
+table.suggestions
+    width: 100%
+    tr
+        th, td
+            font-size: 16px
+            padding: 4px 0
+            &:first-child
+                width: 80px
+        td
+            .item-infor
+                @include inline-flex
+                @include flex-center
+                width: 16px
+                text-align: center
+                border: 1px solid #D83635
+                color: #D83635
+                height: 16px
+                border-radius: 3px
+                cursor: pointer
+                &.apply
+                    border-color: #4BCD9F
+                    color: #4BCD9F
+
+

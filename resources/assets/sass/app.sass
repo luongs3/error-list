@@ -1,5 +1,18 @@
 
 // Fonts
+@import 'commons/mixins'
+@import 'commons/style'
+@import 'commons/themable'
+@import 'components/login'
+// @import 'components/navigation'
+// @import 'components/breadcrumb'
+// @import 'components/profile'
+// @import 'components/notification'
+// @import 'components/notification-all'
+// @import 'components/dashboard'
+// @import 'components/advanced-search'
+// @import 'components/not-found'
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600)
 
 // Variables
@@ -7,7 +20,6 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
-
 body
     margin: 0 !important
     padding: 0 !important
@@ -19,10 +31,420 @@ canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, o
 mark, audio, video
     font-family: 'Open Sans', sans-serif
 
-.nopadding
-   padding: 0 !important
-   margin: 0 !important
+a
+    color: $main-color
 
-.body-content
-    margin-left: 0
-    margin-right: 0
+#app
+    height: 100vh
+    overflow-x: hidden
+    z-index: 1
+
+#wrapper
+    height: 100%
+    .content-wrapper
+        height: 100vh
+        position: fixed
+        width: calc(100% - 280px)
+        left: 280px
+        &>div
+            width: 100%
+        #main-content
+            height: calc(100vh - 64px)
+            overflow: hidden
+            background: #E8E8E8
+            &>div:first-child
+                margin: 16px
+                background: #FFF
+                border-radius: 3px
+                height: calc(100% - 32px)
+                border: solid 1px #cccccc
+                overflow: auto
+            .navigation
+                @include flexbox
+                +justify-content(space-between)
+                +align-items(center)
+                padding: 16px 12px
+                label
+                    font-size: 20px
+                    font-weight: 500
+                    color: #343745
+    &.close-nav
+        .content-wrapper
+            width: calc(100% - 80px)
+            left: 80px
+
+/* Style for splash screen */
+.splash-screen
+    z-index: 2
+    display: none
+    .splash-
+        &overlay
+            width: 100%
+            height: 100%
+            z-index: 100000
+            position: fixed
+            top: 0
+            background: #000
+            +opacity(0.2)
+        &spinner
+            top: 0
+            right: 0
+            bottom: 0
+            left: 0
+            margin: auto
+            position: fixed
+            z-index: 100000
+            height: 68px
+            width: 68px
+            +animation(splashSpinner .8s infinite linear)
+            border: 4px solid $highlight
+            border-right-color: transparent
+            +border-radius(50%)
++keyframes(splashSpinner)
+    0%
+        +transform(rotate(0deg))
+    100%
+        +transform(rotate(360deg))
+
+.loading
+    @extend .splash-screen
+    display: block
+
+// Style for dialog
+.dialog
+    .main
+        padding: 0 !important
+        display: flex
+        flex-direction: column
+        .dialog-header
+            padding: 4px 6px
+            position: relative
+            text-align: center
+            height: 49px
+            span.title
+                display: block
+                font-size: 18px
+                padding: 8px 12px
+                color: #FFF
+            .icon-clear
+                position: absolute
+                top: 12px
+                right: 12px
+                cursor: pointer
+                fill: #FFF !important
+        .dialog-body
+            overflow: auto
+            padding: 24px 36px
+            .actions
+                margin: 12px 0
+                display: flex
+                justify-content: center
+                &>div
+                    &.action-btn
+                        margin: 0 10px
+                        &.full-width
+                            margin: 0
+                            flex-grow: 1
+            .invite-contract
+                display: inline-block !important
+
+        .dialog-footer
+            height: 36px
+            border-top: 1px solid #DDD
+    &.invite-dialog
+        .row
+            &>div
+                width: calc(100% - 40px) !important
+            .required
+                margin: 0 12px 0 0
+            .full-time
+                padding: 8px 18px 12px
+            &:not(.middle-dropdown)
+                div
+                    &:first-child, input
+                        padding-left: 14px !important
+        .middle-dropdown
+            .required
+                position: relative
+                bottom: 14px
+            .invite-contract
+                width: 45% !important
+
+.full-time
+    div
+        div
+            div
+                svg:first-child
+                    fill: rgba(0, 0, 0, 0.298039) !important
+// Style for header
+#header
+    .header-menu
+        cursor: pointer
+        line-height: 64px
+        a, span
+            padding: 0 12px
+        .button
+            line-height: 64px
+            a, span
+                display: block
+                height: 100%
+                text-decoration: none
+                color: $main-color
+                font-size: 18px
+    &>h1
+        display: none
+    .header-contents
+        width: 100%
+        @include flexbox
+        +align-items(center)
+        i.toggle-nav
+            display: inline-block
+            width: 30px
+            font-size: 28px
+            color: #343745
+            cursor: pointer
+            margin-right: 14px
+            &:hover
+                color: $main-color
+        .left-header
+            flex-grow: 1
+            position: relative
+            display: inline-block
+            .search-box
+                max-width: 600px
+                min-width: 400px
+                & > div
+                    padding-left: 24px
+                    margin-right: 12px
+                    background: #D5D5D6
+                i.icon-search
+                    position: absolute
+                    top: 6px
+                    left: 8px
+                    color: #4a4a4a
+                .search-input
+                    height: 36px
+                    border-radius: 3px
+                    font-size: 14px
+                    input
+                        width: 100% !important
+                .advance-search-icon
+                    position: relative
+                    bottom: 33px
+                    right: -530px
+                    font-size: 30px
+                    &:hover
+                        cursor: pointer
+                        color: $button-blue
+        .header-menu
+            padding-left: 10px
+            line-height: initial
+            .button
+                height: 64px
+                @include inline-flex
+                +align-items(center)
+            .header-avatar
+                width: 50px
+                height: 50px
+                display: inline-block
+                background:
+                    size: cover
+                    repeat: no-repeat
+                    position: center center
+                +border-radius(50%)
+            .header-icon
+                color: black
+                position: relative
+                top: 10px
+                left: 10px
+                &:hover
+                    color: $button-blue
+// Style for pagination
+#pagination
+    @include flexbox
+    +justify-content(space-between)
+    +align-items(center)
+    border-top: 1px solid $sub-color-cyan
+    padding: 8px 24px
+    font-size: 14px
+    &>div
+        @include inline-flex
+    .pagination-links
+        .link
+            height: 35px
+            width: 35px
+            margin: 2px
+            color: #337ab7
+            display: flex
+            align-items: center
+            justify-content: center
+            border: 1px solid #ddd
+            &:not(.current):not(.disabled):hover
+                background-color: #eee
+                cursor: pointer
+            &.arrow
+                width: 35px
+                &.disabled
+                    color: #ddd
+            &.current
+                background-color: #337ab7
+                border-color: #337ab7
+                color: white
+.required
+    margin: 0 5px
+    &:before
+        content: "*"
+        color: #D83635
+        height: 14px
+        padding: 0 1px
+
+// Style for table
+table
+    &:not([role="grid"])
+        thead
+            &.header
+                background: #4a4a4a
+                th
+                    font-size: 16px !important
+        td, th
+            padding:
+                left: 12px !important
+                right: 12px !important
+
+// Style for react-widgets
+.rw-widget
+    &.rw-multiselect
+        .rw-multiselect-wrapper
+            height: auto !important
+            input.rw-input
+                top: 0 !important
+                font-size: 16px
+                height: 42px
+                position: relative
+            .rw-multiselect-taglist
+                li
+                    background: #FFF
+                    color: $main-color
+                    border-color: $main-color
+                    border-radius: 20px
+                    padding: 4px 16px
+                    margin-left: 4px
+                    font-size: 16px
+                    &>span
+                        position: relative
+                        right: -8px
+                        display: inline-block
+                        .rw-tag-btn
+                            color: #E53935
+    &[role='combobox']
+        @include flexbox
+        +align-items(center)
+        .rw-input
+            font-size: 16px
+            height: 42px
+            line-height: 42px
+        .rw-dropdownlist-picker
+            height: initial
+            top: 8px
+        .rw-popup-container
+            .rw-popup
+                padding: 2px 0 !important
+                // .rw-filter-input
+                //     input.rw-input
+                //         height: 2.26em
+                ul.rw-list
+                    li
+                        border: none
+                        border-radius: 0
+                        padding:
+                            top: 4px
+                            bottom: 4px
+                        &:hover
+                            background-color: $sub-color-cyan
+                        &.rw-state-selected
+                            background-color: #ffffff
+                            color: $main-color
+                            border-color: transparent
+                            &:hover
+                                background-color: $sub-color-cyan
+    &.rw-state-focus,
+    &.rw-state-focus:hover
+        box-shadow: 0 0 1px $main-color
+        border: 1px solid $main-color
+    &.rw-datetimepicker
+        height: 44px
+        input
+            font-size: 16px
+            height: 100%
+            width: calc(100% - 19px)
+        .rw-select
+            width: 46px
+            text-align: center
+            button
+                width: 100%
+
+// Rewrite button style
+div.btn
+    box-shadow: none !important
+    button
+        height: 46px !important
+        width: 150px
+        div
+            div
+                height: 46px !important
+                text-align: center
+                line-height: 46px !important
+                span
+                    font-weight: bold !important
+    &.btn-black
+        button
+            background-color: $sub-color-cyan !important
+            div
+                div
+                    span
+                        color: $sub-color-dark !important
+    &.btn-void
+        button
+            border: 1px solid $main-color !important
+            span
+                color: $main-color !important
+
+// Style for flex item
+.flex-right
+    +justify-content(flex-end)
+
+.clickable
+    cursor: pointer
+
+// Set color for placeholder
+*::-webkit-input-placeholder
+    color: #AAA !important
+*:-moz-placeholder
+    /* FF 4-18 */
+    color: #AAA !important
+*::-moz-placeholder
+    /* FF 19+ */
+    color: #AAA !important
+*:-ms-input-placeholder
+    /* IE 10+ */
+    color: #AAA !important
+.rw-placeholder
+    color: #AAA !important
+.invite-contract
+    .rw-input
+        color: rgba(0, 0, 0, 0.870588)
+
+.dialog
+    &.import-timesheet
+        .dialog-footer
+            height: 60px
+            padding: 10px
+        .dialog-body
+            padding: 15px
+            .timesheet-university
+                h2
+                    margin: 0
+                    margin-bottom: 10px
+            .missing-value
+                    background-color: red
+                    opacity: 1

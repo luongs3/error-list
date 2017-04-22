@@ -1,0 +1,121 @@
+@import "../commons/mixins"
+
+#main-content
+    .notification-all
+        padding: 20px 30px
+        .notification-header
+            height: 50px
+            line-height: 40px
+            font-size: 18px
+            border-bottom: solid 1px #ccc
+            .header-left
+            .header-right
+                float: right
+                color: $button-blue
+                &:hover
+                    cursor: pointer
+                    text-decoration: underline
+        .messages
+            font-size: 16px !important
+            ul
+                display: block
+                padding: 0
+                overflow-x: hidden
+                overflow-y: auto
+                li
+                    &.item
+                        &.not-read
+                            background: #EDF2FA
+                        &:hover
+                            background-color: #F6F7F9
+                        .text
+                            .type
+                                float: right
+                                font-size: 12px
+                            &.info
+                                .type
+                                    color: #08f
+                            &.warning
+                                .type
+                                    color: #fa0
+                            &.error
+                                .type
+                                    color: #e22
+                        .small
+                            color: #9a9a9a
+                            .time-setting
+                                background-color: orange
+                                color: white
+                                font-size: 14px
+                                border-radius: 5px
+                                margin-right: 10px
+                                padding: 2px
+                            .time-duration
+                                position: relative
+                                bottom: 3px
+                                color: #9b9b9b
+                                font-size: 13px
+                            .dismiss
+                                cursor: pointer
+                                float: right
+                                color: #9b9b9b
+                                font-size: 13px
+                &:not(.working)
+                    li
+                        &.item
+                            .dismiss
+                                &:hover
+                                    color: #e88
+        .messages
+            &:not(.popup-all)
+                color: #424242
+                border-radius: 1px
+                ul
+                    margin: 0
+                    li
+                        min-height: 50px
+                        text-align: left
+                        padding: 5px 15px
+                        &.item
+                            display: flex
+                            flex-direction: column
+                            justify-content: center
+                            &:not(:last-child)
+                                border-bottom: 1px solid #EEE
+                            &.working
+                                background-color: #efefef !important
+                                box-shadow: 0 0 1px rgba(0,0,0,.45)
+                            .text
+                                color: #424242
+                                padding: 10px 0
+                .item-count
+                    .item-total
+                        position: relative
+                        right: 75px
+                        color: black
+                        .item-new
+                            color: $button-blue
+                        .clear
+                            color: $button-blue
+                            position: relative
+                            left: 128px
+                    .item-mark-all
+                        display: inline-block
+                        text-align: right
+                        float: right
+                        padding-right: 15px
+                        color: $button-blue
+
+                .item-count, .show-all, .no-item
+                    height: 40px
+                    line-height: 40px
+                .show-all
+                    font-size: 16px
+                    font-weight: 600
+                    cursor: pointer
+                    border-top: 1px solid #EEE
+                .item-count, .no-item, .show-all
+                    text-align: center
+                .no-item
+                    color: #999
+                    font-size: 17px

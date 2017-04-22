@@ -1,0 +1,213 @@
+.notification
+    display: inline-block
+    position: relative
+    color: white
+    padding-right: 16px
+    &:hover
+        background-color: $button-white
+        .icon
+            +opacity(1)
+            i
+                z-index: 2
+            .unread-count
+                background-color: $sub-color-cyan
+    @include inline-flex
+    +flex-direction(row-reverse)
+    +align-items(center)
+    .icon
+        font-size: 18px
+        color: $sub-color-dark
+        cursor: pointer
+        +opacity(0.7)
+        i.material-icons
+            position: relative
+            font-size: 32px
+        .unread-count
+            position: absolute
+            right: 6px
+            bottom: 18px
+            background-color: red
+            font-size: 12px
+            border-radius: 50%
+            color: white
+            padding: 2px
+            font-weight: 700
+            text-align: center
+            @include inline-flex
+            +align-items(center)
+            +justify-content(center)
+            height: 22px
+            width: 22px
+    .backdrop
+        position: fixed
+        top: 0
+        left: 0
+        width: 100vw
+        height: 100vh
+        background-color: rgba(50, 50, 50, .85)
+        z-index: 9
+    .message-leave-active
+        animation: out .3s ease-in-out 0s 1
+    .messages
+        font-size: 16px !important
+        ul
+            display: block
+            padding: 0
+            overflow-x: hidden
+            overflow-y: auto
+            li
+                &.item
+                    &.not-read
+                        background: #EDF2FA
+                    &:hover
+                        background-color: #F6F7F9
+                    .text
+                        .type
+                            float: right
+                            font-size: 12px
+                        &.info
+                            .type
+                                color: #08f
+                        &.warning
+                            .type
+                                color: #fa0
+                        &.error
+                            .type
+                                color: #e22
+                    .small
+                        color: #9a9a9a
+                        .time-setting
+                            background-color: orange
+                            color: white
+                            font-size: 14px
+                            border-radius: 5px
+                            margin-right: 10px
+                            padding: 2px
+                        .time-duration
+                            position: relative
+                            bottom: 3px
+                            color: #9b9b9b
+                            font-size: 13px
+                        .dismiss
+                            cursor: pointer
+                            float: right
+                            color: #9b9b9b
+                            font-size: 13px
+            &:not(.working)
+                li
+                    &.item
+                        .dismiss
+                            &:hover
+                                color: #e88
+    .messages
+        color: #424242
+        animation: fadeInDown .2s linear 0s 1
+        display: none
+        position: absolute
+        top: 44px
+        left: -22px
+        width: 500px
+        z-index: 1
+        background-color: white
+        border-radius: 1px
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.53)
+        &:before
+            content: ""
+            position: absolute
+            left: 40px
+            height: 0
+            width: 0
+            border: 7px solid
+            border-color: transparent transparent #fff #fff
+            transform-origin: 0 0
+            transform: rotate(135deg)
+            box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.20)
+        &.right
+            left: -353px
+            &:before
+                left: initial
+                right: 108px
+        &.center
+            left: -172px
+            &:before
+                left: 50%
+        ul
+            margin: 0
+            max-height: 350px
+            li
+                min-height: 50px
+                text-align: left
+                padding: 5px 15px
+                &.item
+                    @include flexbox
+                    +flex-direction(column)
+                    +justify-content(center)
+                    &:not(:last-child)
+                        border-bottom: 1px solid #EEE
+                    &.working
+                        background-color: #efefef !important
+                        box-shadow: 0 0 1px rgba(0,0,0,.45)
+                    .text
+                        color: #424242
+                        padding: 10px 0
+                    &:hover
+                        cursor: pointer
+        .item-count
+            border-bottom: 1px solid $sub-color-cyan
+            @include flexbox
+            +align-items(center)
+            +justify-content(space-between)
+            padding: 0 16px
+            &>div
+                @include inline-flex
+            .item-total
+                .notification-counter
+                    color: black
+                    margin-right: 4px
+                .item-new
+                    color: $button-blue
+                    position: relative
+            .clear
+                color: $button-blue
+                &:hover
+                    text-decoration: underline
+                    cursor: pointer
+        .item-count, .show-all, .no-item
+            height: 40px
+            line-height: 40px
+        .show-all
+            font-size: 16px
+            font-weight: 600
+            cursor: pointer
+            border-top: 1px solid #EEE
+            border-top: 1px solid $sub-color-cyan
+        .item-count, .no-item, .show-all
+            text-align: center
+        .no-item
+            color: #999
+            font-size: 17px
+    &.open
+        .messages
+            display: block
+
+@keyframes out
+    0%
+        opacity: 1
+        transform: translateX(0)
+    100%
+        opacity: 0
+        transform: translateX(100%)
+
+@mixin fadeInDownAnim($from)
+    0%
+        opacity: 0
+        transform: translateY(#{'-' + $from + 'px'})
+    100%
+        opacity: 1
+        transform: translateY(0)
+
+@keyframes fadeInDown
+   @include fadeInDownAnim(20)
+
+@keyframes fadeInDownLarge
+   @include fadeInDownAnim(70)

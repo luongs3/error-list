@@ -1,0 +1,17 @@
+#breadcrumbs
+    padding: 4px 12px
+    @include flexbox
+    +align-items(center)
+    +flex-wrap(wrap)
+    &.no-wrap
+        +flex-wrap(nowrap)
+    a, i, span
+        font-size: 20px
+        color: #343745
+    a
+        &:hover
+            text-decoration: none
+            color: $main-color
+    *
+        &:last-child
+            color: $main-color

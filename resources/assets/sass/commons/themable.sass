@@ -1,0 +1,147 @@
+.header
+    .header-menu
+        &:hover, &.active
+            background-color: #ffffff
+            a, span
+                color: $main-color
+
+.dialog
+    .dialog-header
+        background: $main-color
+
+.paper
+    box-sizing: border-box
+    border-radius: 2px
+    &.animated
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms
+    &.cast-shadow
+        box-shadow: $main-color 0px 0px 6px
+    &.cast-simple-shadow
+        box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px
+    & > .header
+        height: 45px
+        color: $main-color
+        border-bottom: 1px solid $main-color
+        font-size: 1.3em
+        text-align: center
+        line-height: 45px
+        position: relative
+        .close-btn
+            position: absolute
+            top: 0
+            right: 0
+            width: 45px
+            height: 45px
+            cursor: pointer
+            svg
+                fill: $main-color !important
+                margin-top: 10px
+            &:hover
+                background-color: $main-color
+                svg
+                    fill: #ffffff !important
+        &.tinted
+            background-color: $main-color
+            border-bottom: none
+            color: #ffffff
+            .close-btn
+                svg
+                    fill: #ffffff !important
+                &:hover
+                    background-color: $primary-background
+                    svg
+                        fill: $main-color !important
+    & > .body
+        height: calc(100% - 45px)
+        padding: 10px 30px 20px
+
+.link-text
+    cursor: pointer
+    &:hover
+        color: $main-color
+        text-decoration: underline
+
+thead
+    &.colored
+        tr
+            th
+                font-size: 1.15em !important
+                font-weight: 500 !important
+                color: $main-color !important
+
+/* custom style when tabs have close button */
+.tabs-window
+    position: relative
+    .icon-clear
+        cursor: pointer
+        position: absolute
+        top: 0
+        right: 0
+        height: 48px
+        width: 48px
+        text-align: center
+        background: $main-color
+        &:hover
+            background: $primary-background
+            svg
+                fill: $main-color !important
+        svg
+            position: relative
+            top: 12px
+    .special-tab
+        height: 100%
+        & > div
+            &:nth-child(1),
+            &:nth-child(2)
+                width: calc(100% - 48px) !important
+
+.rounded-btn
+    border-color: $main-color !important
+    border-radius: 100%
+    .fa.fa-plus
+        color: $main-color !important
+
+.input-border
+    font-size: 16px
+    height: 44px
+    hr
+        display: none
+    &>div
+        margin-left: 12px
+        font-size: 16px
+    input
+        border: 1px solid #CCCCCC !important
+        border-radius: 6px
+        padding: 8px 12px !important
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
+        &:focus
+            border-color: $main-color !important
+            box-shadow: 0 0 1px $main-color
+    textarea
+        border: 1px solid #CCCCCC !important
+        border-radius: 6px
+        padding: 8px !important
+        margin-top: 0 !important
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
+        &:focus
+            border-color: $main-color !important
+            box-shadow: 0 0 1px $main-color
+
+.pagination-links
+    .link
+        &:not(.disabled)
+            color: $main-color
+        &.current
+            color: #ffffff
+            background: $main-color
+            border-color: $main-color
+
+.notification
+    .messages
+        .item-count
+            color: $main-color
+        .show-all
+            cursor: pointer
+            color: $main-color
+            &:hover
+                text-decoration: underline
