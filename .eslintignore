@@ -1,0 +1,2 @@
+resources/assets/js/vendor/*.js
+resources/assets/js/components/element-resize-event.js

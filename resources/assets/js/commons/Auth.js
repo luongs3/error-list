@@ -3,7 +3,6 @@ import $ from 'jquery';
 
 export class Auth {
     getAuth(callback) {
-        console.log('getAuth');
         $.ajax({
             url: '/auth',
             type: 'GET',
@@ -35,6 +34,8 @@ export class Auth {
     }
 
     login(credential, callback) {
+        console.log('login');
+        console.log('credential, callback', credential, callback);
         $.ajax({
             url: '/login',
             method: 'POST',

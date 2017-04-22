@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import autobind from 'react-autobind';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Header from './components/header'
 import Navigation from './components/navigation';
 import {white, grey700} from 'material-ui/styles/colors'
-
-injectTapEventPlugin();
+import $ from 'jquery'
+import _ from 'lodash'
+import toastr from 'toastr'
 
 const mainColor = '#00BBE5';
 const customTheme = {
@@ -36,10 +37,9 @@ const customTheme = {
 
 const muiTheme = getMuiTheme(customTheme);
 
-class App extends Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
-        autobind(this);
 
         this.state = {
             auth: props.auth.user,
@@ -51,12 +51,8 @@ class App extends Component {
         this.headerContents = null;
         this.reload = {};
         this.store = {};
-    }
 
-
-    componentWillMount() {
-        let auth = this.props.auth;
-        auth.onChange(this.onAuthUpdated);
+        autobind(this);
     }
 
     getChildContext() {
@@ -112,6 +108,56 @@ class App extends Component {
         });
     }
 
+    componentWillMount() {
+        let auth = this.props.auth;
+        if (auth.loggedIn) {
+            this.getNotifications();
+        }
+
+        auth.onChange(this.onAuthUpdated);
+    }
+
+    getNotifications() {
+        $.ajax({
+            url: '/notifications',
+            type: 'GET',
+            success: (response) => {
+                this.setState({notifications: response.notifications})
+            }
+        });
+    }
+
+    dismissNotification(id, done) {
+        $.ajax({
+            url: `notifications/${id}`,
+            type: 'PUT',
+            success: (notification) => {
+                let notifications =  this.state.notifications;
+                let index = _.findIndex(notifications, {id});
+                notifications[index] = notification;
+                this.setState({ notifications });
+            },
+            error: (error) => {
+                toastr.error(Helper.getFirstError(error));
+            },
+            complete: done
+        });
+    }
+
+    clearNotification(done) {
+        $.ajax({
+            url: 'notifications/clear',
+            type: 'POST',
+            success: (notifications) => {
+                this.setState({notifications});
+                done();
+            },
+            error: (error) => {
+                toastr.error(Helper.getFirstError(error));
+            }
+        });
+    }
+
     render() {
         let loggedIn = this.props.auth.loggedIn,
             {auth, notifications} = this.state;
@@ -124,7 +170,7 @@ class App extends Component {
 
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
-                <div id="wrapper" className="page admin">
+                <div id="wrapper" className="admin">
                     {loggedIn ? <Navigation pathName={pathname} auth={auth}/> : null}
                     <div className="content-wrapper">
                         {loggedIn ?

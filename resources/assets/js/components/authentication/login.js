@@ -90,7 +90,6 @@ class Login extends React.Component {
     }
 
     render() {
-        console.log('login');
         let auth = this.context.auth,
             title = this.props.route.title,
             framgiaLogo = Config.framgiaWhiteLogo;

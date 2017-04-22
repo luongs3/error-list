@@ -23,14 +23,12 @@ window.Helper = Helper;
 let auth = new Auth();
 
 function requireAuth(nextState, replace) {
-        console.log('nextState, replace', nextState, replace);
-        console.log('auth', auth);
     if (auth.loggedIn === false) {
         if (auth.error) {
             toastr.error(auth.error);
             auth.error = null;
         }
-        console.log('replace');
+
         replace({
             pathname: '/login',
             state: {
@@ -41,7 +39,6 @@ function requireAuth(nextState, replace) {
 }
 
 function authenticated(nextState, replace) {
-        console.log('authenticated');
     if (auth.loggedIn && auth.user) {
         replace({
             pathname: '/'
@@ -55,7 +52,7 @@ const routers = (
             <Route path='login' component={Login} type="admin" title="Awsesome Teacher Admin Login" redirect='' onEnter={authenticated}/>
             <Route path='register/:token' component={RegisterForm} onEnter={authenticated}/>
             <Route path='' onEnter={requireAuth}>
-                <IndexRedirect to='tags'/>
+                <IndexRedirect to='errors'/>
 
                 <Route path='errors'>
                     <IndexRoute component={Errors} />
