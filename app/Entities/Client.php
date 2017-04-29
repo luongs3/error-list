@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Carbon\Carbon $updated_at
  */
 
-class Admin extends BaseUser implements
+class Client extends BaseUser implements
     UserProvider,
     AuthenticatableContract,
     CanResetPasswordContract
@@ -37,9 +37,9 @@ class Admin extends BaseUser implements
     protected $fillable = [
         'email',
         'name',
+        'avatar',
         'password',
         'is_super',
-        'avatar',
         'is_active',
         'is_remove',
         'remember_token',
@@ -55,12 +55,5 @@ class Admin extends BaseUser implements
     public function notifications()
     {
         return $this->morphMany(Notification::class, 'viewable');
-    }
-    /**
-     * Get all documents
-     */
-    public function documents()
-    {
-        return $this->morphMany(Document::class, 'uploadable');
     }
 }

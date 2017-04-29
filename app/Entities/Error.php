@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Error extends Model
 {
-    protected $fillable = ['error', 'solution', 'reason', 'category_id'];
+    use SoftDeletes;
 
+    protected $fillable = ['error', 'solution', 'reason', 'category_id'];
     protected $dates = ['deleted_at'];
     public $timestamps = true;
 

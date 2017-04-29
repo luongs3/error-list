@@ -15,5 +15,9 @@ return [
         'fri' => 'Friday',
         'sat' => 'Saturday',
         'sun' => 'Sunday',
+    ],
+    'post_types' => [
+        'error' => 0,
+        'tips' => 1,
     ]
 ];

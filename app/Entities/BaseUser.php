@@ -29,14 +29,14 @@ abstract class BaseUser extends Model implements UserProvider
         return $this->getType() === UserProvider::ADMIN;
     }
 
-    public function isTeacher()
+    public function isClient()
     {
-        return $this->getType() === UserProvider::TEACHER;
+        return $this->getType() === UserProvider::CLIENT;
     }
 
     public function getName()
     {
-        return trim($this->first_name . ' ' . $this->last_name, ' ');
+        return trim($this->name);
     }
 
     public function getIdentifier()
