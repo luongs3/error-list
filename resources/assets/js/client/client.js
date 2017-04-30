@@ -9,6 +9,7 @@ import {Auth, persistAuth} from '../commons/Auth';
 import App from './app';
 import Login from '../components/authentication/login';
 import RegisterForm from '../components/password/register-form';
+import Errors from './containers/errors';
 
 $.ajaxSetup({
     headers: {
@@ -54,10 +55,8 @@ const routers = (
                 <Route path='errors'>
                     <IndexRoute component={Errors} />
                 </Route>
-                <Route path='tags' component={Tag} />
             </Route>
         </Route>
-
     </Router>
 );
 

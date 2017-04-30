@@ -27,4 +27,10 @@ Route::group(['domain' => $_ENV['APP_DOMAIN']], function() {
     Route::get('', function () {
         return view('client/index');
     });
+
+    Route::group(['namespace' => 'Client'], function () {
+        Route::get('auth', 'Auth\SessionsController@index')->name('client.auth');
+        Route::post('login', 'Auth\SessionsController@store')->name('client.login');
+        Route::get('logout', 'Auth\SessionsController@logout')->name('client.logout');
+    });
 });

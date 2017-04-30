@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
         ],
 
         'admin' => ['web'],
-        'teacher' => ['web'],
+        'client' => ['web'],
 
         'api' => [
             'throttle:60,1',

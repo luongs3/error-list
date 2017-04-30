@@ -34,8 +34,6 @@ export class Auth {
     }
 
     login(credential, callback) {
-        console.log('login');
-        console.log('credential, callback', credential, callback);
         $.ajax({
             url: '/login',
             method: 'POST',

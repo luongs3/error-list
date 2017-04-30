@@ -4,6 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {white, grey700} from 'material-ui/styles/colors'
+import Header from '../components/header'
 
 injectTapEventPlugin();
 
@@ -75,12 +76,6 @@ class App extends Component {
 
     updateAuth(auth) {
         this.setState({ auth})
-    }
-
-    setHeaderContents(...components) {
-        components = components.map((component, index) => component ? React.cloneElement(component, {key: index}) : null);
-        this.headerContents = components;
-        this.forceUpdate();
     }
 
     updateReloadData(type, needReload) {

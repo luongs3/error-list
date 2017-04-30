@@ -33,15 +33,13 @@ class Client extends BaseUser implements
 {
     use Authenticatable, CanResetPassword, Authorizable, SoftDeletes;
 
-    protected $table = 'admins';
+    protected $table = 'clients';
     protected $fillable = [
         'email',
         'name',
         'avatar',
         'password',
-        'is_super',
         'is_active',
-        'is_remove',
         'remember_token',
         'invite_token',
     ];

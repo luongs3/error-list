@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ mix('css/vendor.css') }}">
 </head>
 <body>
-    <div id="client">
+    <div id="app">
     </div>
     <script type="text/javascript" src="{{ mix('js/client.js') }}"></script>
 </body>

@@ -1,8 +1,8 @@
 {
+  "/js/client.js": "/js/client.js",
   "/js/admin.js": "/js/admin.js",
   "/css/vendor.css": "/css/vendor.css",
   "/css/app.css": "/css/app.css",
   "/css/admin.css": "/css/admin.css",
-  "/css/client.css": "/css/client.css",
-  "/js/client.js": "/js/client.js"
+  "/css/client.css": "/css/client.css"
 }

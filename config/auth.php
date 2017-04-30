@@ -41,7 +41,7 @@ return [
             'provider' => 'admins',
         ],
 
-        'teacher' => [
+        'client' => [
             'driver' => 'session',
             'provider' => 'clients',
         ],
@@ -75,17 +75,16 @@ return [
 
     'providers' => [
         'admins' => [
-        'driver' => 'eloquent',
-        'model' => App\Entities\Admin::class,
-    ],
-
-    'teachers' => [
-        'driver' => 'eloquent',
-        'model' => App\Entities\Client::class,
-    ],
+            'driver' => 'eloquent',
+            'model' => App\Entities\Admin::class,
+        ],
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Entities\Client::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Entities\User::class,
         ],
 
         // 'users' => [

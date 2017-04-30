@@ -19,7 +19,7 @@ mix.react('resources/assets/js/admin/admin.js', 'public/js')
 .sass('resources/assets/sass/client/client.sass', 'public/css');
 
 mix.browserSync({
-    proxy: 'admin.error-list.local'
+    proxy: 'error-list.local'
 });
 
 if (mix.config.inProduction) {
